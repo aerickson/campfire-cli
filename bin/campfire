@@ -1,4 +1,4 @@
-#!/usr/local/bin/ruby
+#!/usr/bin/env ruby
 
 require 'rubygems'
 require 'tinder'
@@ -24,10 +24,8 @@ chat_name = @chats.keys[chat_index]
 
 puts "Joining #{chat_name} ..."
 
-
-campfire = Campfire.new conf['domain'], :ssl => conf['ssl']
 puts "Logging in..."
-campfire.login conf['username'], conf['password']
+campfire = Campfire.new conf['domain'], :ssl => conf['ssl'], :username => conf['username'], :password => conf['password']
 puts "Logged in!"
 
 unless conf['default-room']
